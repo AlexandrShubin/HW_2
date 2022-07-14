@@ -1,0 +1,75 @@
+# 1. Напишите программу, которая принимает на вход 
+# вещественное число и показывает сумму его цифр.
+
+# Пример:
+
+# - 6782 -> 23
+# - 0,56 -> 11
+
+num = int(input("Число--> "))
+sum = 0
+while (num != 0):
+    sum = sum + num % 10
+    num = num // 10
+print("Сумма =  ", sum)
+
+# 2. Напишите программу, которая принимает на вход число N 
+# и выдает набор произведений чисел от 1 до N.
+
+# Пример:
+
+# - пусть N = 4, тогда [ 1, 2, 6, 24 ] (1, 1*2, 1*2*3, 1*2*3*4)
+
+n = int(input("--> "))
+a = 1
+for i in range(1,n+1):
+    a = a*i
+print(a)
+
+# 3. Задайте список из n чисел последовательности $(1+\frac 1 n)^n$ 
+# и выведите на экран их сумму.
+
+# Пример:
+
+# - Для n = 6: {1: 4, 2: 7, 3: 10, 4: 13, 5: 16, 6: 19}
+
+n = int(input())
+sum = 0
+for i in range(n):
+    sum += int(input())
+print(sum)
+
+# 4. Задайте список из N элементов, заполненных числами 
+# из промежутка [-N, N]. Найдите произведение элементов 
+# на указанных позициях. Позиции хранятся в файле file.txt 
+# в одной строке одно число.
+
+arr = [int(input('Введите элемент списка--> ')) for i in range(int(input('Введите длину --> ')))]
+ 
+prod = 1
+for i in arr:
+    prod *= i
+ 
+print(f'Список--> {arr}')
+print(f'Произведение--> {prod}')
+
+# 5. Реализуйте алгоритм перемешивания списка.
+
+import random
+
+def mix_list(list_original):
+    list = list_original[:]
+    list_length = len(list)
+    for i in range(list_length):
+        index_aleatory = random.randint(0, list_length - 1)
+        temp = list[i]
+        list[i] = list[index_aleatory]
+        list[index_aleatory] = temp
+    return list
+
+list = [1, 3, 4, 6, 7, 9]
+mixed_list = mix_list(list)
+print("Исходный список: ")
+print(list)
+print("Перемешанный список: ")
+print(mixed_list)
